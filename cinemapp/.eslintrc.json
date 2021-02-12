@@ -25,9 +25,13 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "object-curly-newline": "off",
+    "indent": "off",
+    "implicit-arrow-linebreak": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": "error",
+    "arrow-parens": "off",
     "react/jsx-filename-extension": [
       1,
       {
