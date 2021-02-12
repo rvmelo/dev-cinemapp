@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
+export const ScreenMessage = styled.div`
+  margin-top: 10px;
+`;
+
 export const SearchScreenContainer = styled.div`
   max-width: 960px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  h1 {
+    font: 16px sans-serif;
+  }
 `;
 
 export const Form = styled.form`
@@ -40,13 +47,9 @@ export const MovieContainer = styled.div`
   overflow: hidden;
   margin-top: 20px;
 
-  h1 {
-    font: 16px sans-serif;
-  }
-
   div {
     padding: 20px;
-    background-color: orange;
+    background-color: #ff9000;
     text-align: center;
   }
 `;
