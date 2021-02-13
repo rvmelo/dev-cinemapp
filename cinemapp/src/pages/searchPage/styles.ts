@@ -6,10 +6,12 @@ export const ScreenMessage = styled.div`
 `;
 
 export const SearchScreenContainer = styled.div`
+  background-color: grey;
   max-width: 960px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
   h1 {
     font: 16px sans-serif;
   }

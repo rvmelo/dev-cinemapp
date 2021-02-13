@@ -1,4 +1,5 @@
 import React, { useState, useCallback, FormEvent } from 'react';
+import Header from '../../components/header';
 import api from '../../services/api';
 import {
   Form,
@@ -40,40 +41,43 @@ const SearchPage: React.FC = () => {
   );
 
   return (
-    <SearchScreenContainer>
-      <Form onSubmit={handleMovieSearch}>
-        <input
-          value={searchValue}
-          type="text"
-          onChange={e => setSearchValue(e.target.value)}
-          placeholder="Digite o nome do filme"
-        />
-        <button type="submit">Buscar</button>
-      </Form>
+    <>
+      <Header />
+      <SearchScreenContainer>
+        <Form onSubmit={handleMovieSearch}>
+          <input
+            value={searchValue}
+            type="text"
+            onChange={e => setSearchValue(e.target.value)}
+            placeholder="Digite o nome do filme"
+          />
+          <button type="submit">Buscar</button>
+        </Form>
 
-      {movies.length === 0 && buttonPressed ? (
-        <ScreenMessage>
-          <h1>Nenhum filme encontrado...</h1>
-        </ScreenMessage>
-      ) : (
-        movies.map(movie => (
-          <MovieContainer>
-            <img src={movie.Poster} alt={movie.Title} />
-            <div>
-              <h1>{movie.Title}</h1>
-              <h1>
-                Year:
-                {movie.Year}
-              </h1>
-              <h1>
-                Type:
-                {movie.Type}
-              </h1>
-            </div>
-          </MovieContainer>
-        ))
-      )}
-    </SearchScreenContainer>
+        {movies.length === 0 && buttonPressed ? (
+          <ScreenMessage>
+            <h1>Nenhum filme encontrado...</h1>
+          </ScreenMessage>
+        ) : (
+          movies.map(movie => (
+            <MovieContainer>
+              <img src={movie.Poster} alt={movie.Title} />
+              <div>
+                <h1>{movie.Title}</h1>
+                <h1>
+                  Year:
+                  {movie.Year}
+                </h1>
+                <h1>
+                  Type:
+                  {movie.Type}
+                </h1>
+              </div>
+            </MovieContainer>
+          ))
+        )}
+      </SearchScreenContainer>
+    </>
   );
 };
 
