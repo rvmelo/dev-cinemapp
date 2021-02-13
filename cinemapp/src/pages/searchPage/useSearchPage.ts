@@ -37,7 +37,7 @@ export default function useSearchPage(): searchPageData {
   const handleMovieSearch = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      setButtonPressed(true);
+      setButtonPressed(false);
       api.get('', { params: { s: searchValue } }).then(response => {
         const formattedMovies = response.data.Search
           ? response.data.Search.map((movie: Movie) => ({
@@ -48,7 +48,7 @@ export default function useSearchPage(): searchPageData {
               Poster: movie.Poster,
             }))
           : [];
-
+        setButtonPressed(true);
         setMovies([...formattedMovies]);
       });
     },
