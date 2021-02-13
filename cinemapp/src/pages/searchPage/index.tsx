@@ -1,6 +1,7 @@
-import React, { useState, useCallback, FormEvent } from 'react';
+import React, { memo } from 'react';
+import useSearchPage from './useSearchPage';
 import Header from '../../components/header';
-import api from '../../services/api';
+
 import {
   Form,
   MovieContainer,
@@ -8,37 +9,14 @@ import {
   ScreenMessage,
 } from './styles';
 
-interface Movie {
-  Title: string;
-  Type: string;
-  Year: string;
-  Poster: string;
-}
-
 const SearchPage: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [searchValue, setSearchValue] = useState('');
-  const [buttonPressed, setButtonPressed] = useState(false);
-
-  const handleMovieSearch = useCallback(
-    (event: FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      setButtonPressed(true);
-      api.get('', { params: { s: searchValue } }).then(response => {
-        const formattedMovies = response.data.Search
-          ? response.data.Search.map((movie: Movie) => ({
-              Title: movie.Title,
-              Type: movie.Type,
-              Year: movie.Year,
-              Poster: movie.Poster,
-            }))
-          : [];
-
-        setMovies([...formattedMovies]);
-      });
-    },
-    [searchValue, setMovies],
-  );
+  const {
+    movies,
+    searchValue,
+    setSearchValue,
+    buttonPressed,
+    handleMovieSearch,
+  } = useSearchPage();
 
   return (
     <>
@@ -81,4 +59,4 @@ const SearchPage: React.FC = () => {
   );
 };
 
-export default SearchPage;
+export default memo(SearchPage);
