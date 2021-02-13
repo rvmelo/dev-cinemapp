@@ -4,7 +4,7 @@ import { shade } from 'polished';
 export const HeaderContainer = styled.header`
   display: flex;
   background-color: #ff9000;
-  padding: 10px 80px;
+  padding: 10px 30px;
   justify-content: space-between;
   align-items: center;
 

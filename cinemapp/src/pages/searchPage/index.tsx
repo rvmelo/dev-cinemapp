@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { BsStarFill, BsStar } from 'react-icons/bs';
 import useSearchPage from './useSearchPage';
 import Header from '../../components/header';
 
@@ -12,10 +13,12 @@ import {
 const SearchPage: React.FC = () => {
   const {
     movies,
+    favorites,
     searchValue,
     setSearchValue,
     buttonPressed,
     handleMovieSearch,
+    handleSetFavorites,
   } = useSearchPage();
 
   return (
@@ -38,7 +41,7 @@ const SearchPage: React.FC = () => {
           </ScreenMessage>
         ) : (
           movies.map(movie => (
-            <MovieContainer>
+            <MovieContainer key={movie.imdbID}>
               <img src={movie.Poster} alt={movie.Title} />
               <div>
                 <h1>{movie.Title}</h1>
@@ -50,6 +53,16 @@ const SearchPage: React.FC = () => {
                   Type:
                   {movie.Type}
                 </h1>
+
+                <button type="submit" onClick={() => handleSetFavorites(movie)}>
+                  {favorites.find(
+                    favoriteMovie => favoriteMovie.imdbID === movie.imdbID,
+                  ) ? (
+                    <BsStarFill size={20} color="yellow" />
+                  ) : (
+                    <BsStar size={20} />
+                  )}
+                </button>
               </div>
             </MovieContainer>
           ))

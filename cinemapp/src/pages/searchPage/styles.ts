@@ -6,14 +6,21 @@ export const ScreenMessage = styled.div`
 `;
 
 export const SearchScreenContainer = styled.div`
-  background-color: grey;
   max-width: 960px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 100px auto;
   h1 {
     font: 16px sans-serif;
+  }
+  button {
+    background: transparent;
+    border: none;
+    margin-top: 10px;
+  }
+  svg {
+    color: yellow;
   }
 `;
 
