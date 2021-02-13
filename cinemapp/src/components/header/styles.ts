@@ -26,4 +26,13 @@ export const HeaderContainer = styled.header`
   h1 {
     color: white;
   }
+
+  @media (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      margin-top: 10px;
+    }
+  }
 `;

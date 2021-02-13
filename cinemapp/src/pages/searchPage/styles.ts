@@ -46,6 +46,10 @@ export const Form = styled.form`
     border-radius: 5px;
     padding: 5px;
   }
+
+  @media (max-width: 380px) {
+    max-width: 200px;
+  }
 `;
 
 export const MovieContainer = styled.div`
@@ -60,5 +64,16 @@ export const MovieContainer = styled.div`
     padding: 20px;
     background-color: #ff9000;
     text-align: center;
+  }
+
+  @media (max-width: 380px) {
+    max-width: 200px;
+    img {
+      width: 100%;
+    }
+
+    div {
+      padding: 20px 0;
+    }
   }
 `;

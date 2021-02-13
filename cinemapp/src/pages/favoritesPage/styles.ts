@@ -6,9 +6,11 @@ export const FavoritesScreenContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 100px auto;
+
   h1 {
     font: 16px sans-serif;
   }
+
   button {
     background: transparent;
     border: none;
@@ -28,5 +30,16 @@ export const MovieContainer = styled.div`
     padding: 20px;
     background-color: #ff9000;
     text-align: center;
+  }
+
+  @media (max-width: 380px) {
+    max-width: 200px;
+    img {
+      width: 100%;
+    }
+
+    div {
+      padding: 20px 0;
+    }
   }
 `;
