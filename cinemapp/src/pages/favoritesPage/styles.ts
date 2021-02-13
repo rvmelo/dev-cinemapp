@@ -9,6 +9,15 @@ export const FavoritesScreenContainer = styled.div`
 
   h1 {
     font: 16px sans-serif;
+    color: white;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  svg {
+    color: white;
   }
 
   button {
@@ -28,7 +37,7 @@ export const MovieContainer = styled.div`
 
   div {
     padding: 20px;
-    background-color: #ff9000;
+    background-color: #e50914;
     text-align: center;
   }
 

@@ -9,16 +9,12 @@ export default createGlobalStyle`
 }
 
 body {
-  background: white;
+  background: black;
   -webkit-font-smoothing: antialiased;
 }
 
 body, input, button {
   font: 16px sans-serif;
-}
-
-#root {
-
 }
 
 button {

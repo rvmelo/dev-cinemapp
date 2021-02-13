@@ -11,14 +11,18 @@ export const SearchScreenContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 100px auto;
+
   h1 {
     font: 16px sans-serif;
+    color: white;
   }
+
   button {
     background: transparent;
     border: none;
     margin-top: 10px;
   }
+
   svg {
     color: yellow;
   }
@@ -33,12 +37,12 @@ export const Form = styled.form`
     margin-top: 10px;
     padding: 5px 50px;
     border-radius: 5px;
-    background: #ff9000;
+    background: #e50914;
     border: 0;
-    color: #3e3b47;
+    color: white;
 
     &:hover {
-      background: ${shade(0.2, '#ff9000')};
+      background: ${shade(0.2, '#e50914')};
     }
   }
 
@@ -62,7 +66,7 @@ export const MovieContainer = styled.div`
 
   div {
     padding: 20px;
-    background-color: #ff9000;
+    background-color: #e50914;
     text-align: center;
   }
 
