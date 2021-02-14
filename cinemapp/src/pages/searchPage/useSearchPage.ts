@@ -2,7 +2,7 @@
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import api from '../../services/api';
 
-interface Movie {
+export interface Movie {
   Title: string;
   Year: string;
   imdbID: string;
@@ -16,6 +16,7 @@ interface searchPageData {
   searchValue: string;
   setSearchValue(searchValue: string): void;
   buttonPressed: boolean;
+  isLoading: boolean;
   handleMovieSearch(event: FormEvent<HTMLFormElement>): void;
   handleSetFavorites(movie: Movie): void;
 }
@@ -33,11 +34,13 @@ export default function useSearchPage(): searchPageData {
   });
   const [searchValue, setSearchValue] = useState('');
   const [buttonPressed, setButtonPressed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleMovieSearch = useCallback(
     (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       setButtonPressed(false);
+      setIsLoading(true);
       api.get('', { params: { s: searchValue } }).then(response => {
         const formattedMovies = response.data.Search
           ? response.data.Search.map((movie: Movie) => ({
@@ -49,6 +52,7 @@ export default function useSearchPage(): searchPageData {
             }))
           : [];
         setButtonPressed(true);
+        setIsLoading(false);
         setMovies([...formattedMovies]);
       });
     },
@@ -74,6 +78,7 @@ export default function useSearchPage(): searchPageData {
     searchValue,
     setSearchValue,
     buttonPressed,
+    isLoading,
     handleMovieSearch,
     handleSetFavorites,
   };

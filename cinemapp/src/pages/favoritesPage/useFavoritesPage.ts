@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react';
 
-interface Movie {
+export interface Movie {
   Title: string;
   Year: string;
   imdbID: string;

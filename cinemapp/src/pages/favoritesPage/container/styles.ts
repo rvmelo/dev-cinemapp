@@ -35,6 +35,11 @@ export const MovieContainer = styled.div`
   overflow: hidden;
   margin-top: 20px;
 
+  p {
+    color: white;
+    margin: 50px auto;
+  }
+
   div {
     padding: 20px;
     background-color: #e50914;
